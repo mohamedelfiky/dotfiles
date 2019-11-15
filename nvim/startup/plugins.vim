@@ -43,12 +43,24 @@ Plug 'tpope/vim-haml'
 "Syntax highlighting for VIM
 Plug 'slim-template/vim-slim'
 
+" Terraform
+Plug 'hashivim/vim-terraform'
+Plug 'vim-syntastic/syntastic'
+Plug 'juliosueiras/vim-terraform-completion'
+
+"React plugins
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'mattn/emmet-vim'
+Plug 'w0rp/ale'
+Plug 'flowtype/vim-flow'
+
 "Is all about surroundings: parentheses, brackets, quotes, XML tags, and more.
 Plug 'tpope/vim-surround'
 "Vim script for text filtering and alignment
 Plug 'godlygeek/tabular'
 "Send command from vim to a running tmux session
-" Plug 'jgdavey/tslime.vim'
+Plug 'jgdavey/tslime.vim'
 "plugin for commenting
 Plug 'tpope/vim-commentary'
 "Fold markdown documents by section.
@@ -107,12 +119,16 @@ Plug 'honza/vim-snippets'
 "======= elixir =============
 " Plug 'elixir-lang/vim-elixir'
 " Plug 'avdgaag/vim-phoenix'
+"======= golang =============
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 "linting and make framework for Neovim/Vim
 Plug 'benekastah/neomake'
 
 " Insert or delete brackets, parens, quotes in pair.
 Plug 'jiangmiao/auto-pairs'
+
+Plug 'ekalinin/dockerfile.vim'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Plug 'jeetsukumaran/vim-buffergator'

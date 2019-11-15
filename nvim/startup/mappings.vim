@@ -74,8 +74,8 @@ nmap <leader>ls :ls<CR>:b
 nmap <leader><leader> <c-^>
 nmap <leader>re :call Rename()<cr>
 " rspec test
-nmap <Leader>s :call RunCurrentSpecFile()<CR>
-" nmap <Leader>s :call RunNearestSpec()<CR>
+nmap <Leader>t :call RunCurrentSpecFile()<CR>
+nmap <Leader>s :call RunNearestSpec()<CR>
 nmap <Leader>l :call RunLastSpec()<CR>
 nmap <Leader>rs :call RunAllSpecs()<CR>
 
@@ -84,3 +84,7 @@ vmap < <gv
 vmap > >gv
 "Execute dot in the selection
 vmap . :norm.<CR>
+
+vmap <C-c><C-c> <Plug>SendSelectionToTmux
+nmap <C-c><C-c> <Plug>NormalModeSendToTmux
+nmap <C-c>r <Plug>SetTmuxVars

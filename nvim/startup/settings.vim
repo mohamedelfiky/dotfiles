@@ -11,6 +11,11 @@ let g:deoplete#enable_smart_case = 1
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:deoplete#omni_patterns = {}
+call deoplete#custom#option('omni_patterns', {
+\ 'complete_method': 'omnifunc',
+\ 'terraform': '[^ *\t"{=$]\w*',
+\})
 
 "================================
 " neomake
@@ -24,6 +29,7 @@ let g:vimfiler_as_default_explorer = 1
 let g:pymode_rope_lookup_project = 0
 let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'html'] " Specific configurations
 let g:move_key_modifier = 'C'
+let g:python3_host_prog = '/usr/local/bin/python3'
 let g:gist_clip_command = 'xclip -selection clipboard'
 let g:gist_use_password_in_gitconfig = 1
 let g:gist_detect_filetype = 1
@@ -73,7 +79,7 @@ set winminheight=5
 set winwidth=84
 syntax enable
 set background=dark
-colorscheme Tomorrow-Night-Eighties
+colorscheme Tomorrow-Night
 let g:airline_theme='Tomorrow-Night'
 "========================================
 
@@ -118,6 +124,9 @@ set statusline+=%=
 set statusline+=c%c
 set statusline+=,l%l
 set statusline+=/%L\
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 hi User1 ctermbg=white    ctermfg=black   guibg=#89A1A1 guifg=#002B36
 hi User2 ctermbg=red      ctermfg=white   guibg=#aa0000 guifg=#89a1a1
 "========================================
@@ -200,3 +209,49 @@ let g:vim_tags_auto_generate = 1
 
 "Split-term
 let g:split_term_vertical = 1
+
+"React Settings
+let g:user_emmet_leader_key='<Tab>'
+let g:user_emmet_settings = {
+  \  'javascript.jsx' : {
+    \      'extends' : 'jsx',
+    \  },
+  \}
+let g:ale_fix_on_save = 1
+let b:ale_linters = ['eslint']
+let g:javascript_plugin_jsdoc = 1
+
+" eslint ale enhancements
+let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+let g:ale_sign_warning = '.'
+let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+let g:tslime_always_current_session = 1
+let g:tslime_always_current_window = 1
+
+" Terraform config
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" (Optional)Remove Info(Preview) window
+set completeopt-=preview
+
+" (Optional)Hide Info(Preview) window after completions
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" (Optional) Enable terraform plan to be include in filter
+let g:syntastic_terraform_tffilter_plan = 1
+
+" (Optional) Default: 0, enable(1)/disable(0) plugin's keymapping
+let g:terraform_completion_keys = 1
+
+" (Optional) Default: 1, enable(1)/disable(0) terraform module registry completion
+let g:terraform_registry_module_completion = 0
+
+" test
+let g:rspec_command = "bundle exec rspec {spec}"
+
